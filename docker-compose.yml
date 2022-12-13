@@ -1,0 +1,74 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - systematic-nosql-db-volume
+    networks:
+      - default
+    ports:
+      - 27017:27017
+
+  postgresql:
+      image: bitnami/postgresql
+      environment:
+        POSTGRESQL_USERNAME: systematic-review-db-user
+        POSTGRESQL_PASSWORD: pg22sr
+        POSTGRESQL_DATABASE: studies
+      volumes:
+        - systematic-sql-db-volume
+      networks:
+        - default
+      ports:
+        - 5432:5432
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - default
+    ports:
+      - 22181:2181
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    networks:
+      - default
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  #systematic-review-api:
+  #  depends_on:
+  #    - mongodb
+  #    - kafka
+  #  networks:
+  #    - default
+  #  build:
+  #    context: ./systematic-review-api
+  #    dockerfile: ./Dockerfile
+  #  ports:
+  #    - 8080:8080
+  #  environment:
+  #    MONGODB_HOST: 0.0.0.0
+
+
+volumes:
+  systematic-nosql-db-volume:
+    external: false
+  systematic-sql-db-volume:
+    external: false
+
+networks:
+  default:
+    external: false
