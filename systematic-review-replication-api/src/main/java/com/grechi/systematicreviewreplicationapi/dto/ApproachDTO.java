@@ -18,6 +18,9 @@ public class ApproachDTO {
     private String description;
 
     @JsonProperty
+    private String applicationDomain;
+
+    @JsonProperty
     private List<LifeCyclePhaseEnum> lifeCyclePhases;
 
     @JsonProperty
@@ -28,6 +31,9 @@ public class ApproachDTO {
 
     @JsonProperty
     private ModelTypeEnum modelType;
+
+    @JsonProperty
+    private ModelingMethodEnum modelingMethod;
 
     @JsonProperty
     private EvaluationEnum evaluation;

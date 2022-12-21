@@ -21,6 +21,9 @@ public class Approach {
     @Column
     private String description;
 
+    @Column
+    private String applicationDomain;
+
     @ManyToMany
     private List<LifeCyclePhase> lifeCyclePhases;
 
@@ -34,6 +37,10 @@ public class Approach {
     @ManyToOne
     @JoinColumn(name = "modelType")
     private ModelType modelType;
+
+    @ManyToOne
+    @JoinColumn(name = "modelingMethod")
+    private ModelingMethod modelingMethod;
 
     @ManyToOne
     @JoinColumn(name = "evaluation")

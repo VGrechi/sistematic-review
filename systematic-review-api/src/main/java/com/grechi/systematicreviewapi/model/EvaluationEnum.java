@@ -6,6 +6,7 @@ public enum EvaluationEnum {
     EMPIRICAL,
     COMPARATIVE,
     EXPERT_EVALUATION,
+    CASE_STUDY,
     OTHER
 
 }

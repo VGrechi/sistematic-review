@@ -14,6 +14,9 @@ public class Approach {
     @NotNull(message = "{validation.study.approach.description}")
     private String description;
 
+    @NotNull(message = "{validation.study.approach.applicationDomain}")
+    private String applicationDomain;
+
     @NotNull(message = "{validation.study.approach.lifeCyclePhases}")
     private List<LifeCyclePhaseEnum> lifeCyclePhases;
 
@@ -25,6 +28,9 @@ public class Approach {
 
     @NotNull(message = "{validation.study.approach.modelType}")
     private ModelTypeEnum modelType;
+
+    @NotNull(message = "{validation.study.approach.modelingMethod}")
+    private ModelingMethodEnum modelingMethod;
 
     @NotNull(message = "{validation.study.approach.evaluation}")
     private EvaluationEnum evaluation;

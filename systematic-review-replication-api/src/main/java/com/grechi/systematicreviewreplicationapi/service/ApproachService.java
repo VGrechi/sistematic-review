@@ -16,6 +16,8 @@ public class ApproachService {
 
     private final ModelTypeRepository modelTypeRepository;
 
+    private final ModelingMethodRepository modelingMethodRepository;
+
     private final ApproachTypeRepository approachTypeRepository;
 
     private final GoalRepository goalRepository;
@@ -26,11 +28,12 @@ public class ApproachService {
     private final ApproachRepository approachRepository;
 
     @Autowired
-    public ApproachService(LifeCyclePhaseRepository lifeCyclePhaseRepository, RiskActivityRepository riskActivityRepository, ModelTypeRepository modelTypeRepository, ApproachTypeRepository approachTypeRepository, GoalRepository goalRepository, EvaluationRepository evaluationRepository, MeasurementRepository measurementRepository, ApproachRepository approachRepository) {
+    public ApproachService(LifeCyclePhaseRepository lifeCyclePhaseRepository, RiskActivityRepository riskActivityRepository, ModelTypeRepository modelTypeRepository, ModelingMethodRepository modelingMethodRepository, ApproachTypeRepository approachTypeRepository, GoalRepository goalRepository, EvaluationRepository evaluationRepository, MeasurementRepository measurementRepository, ApproachRepository approachRepository) {
         this.lifeCyclePhaseRepository = lifeCyclePhaseRepository;
+        this.approachTypeRepository = approachTypeRepository;
         this.riskActivityRepository = riskActivityRepository;
         this.modelTypeRepository = modelTypeRepository;
-        this.approachTypeRepository = approachTypeRepository;
+        this.modelingMethodRepository = modelingMethodRepository;
         this.goalRepository = goalRepository;
         this.evaluationRepository = evaluationRepository;
         this.measurementRepository = measurementRepository;
@@ -41,6 +44,7 @@ public class ApproachService {
         Approach approach = new Approach();
         approach.setName(approachDTO.getName());
         approach.setDescription(approachDTO.getDescription());
+        approach.setApplicationDomain(approachDTO.getApplicationDomain());
         approach.setTools(approachDTO.getTools());
 
         approach.setLifeCyclePhases(new ArrayList<>());
@@ -61,6 +65,9 @@ public class ApproachService {
 
         modelTypeRepository.findById(approachDTO.getModelType())
                 .ifPresent(approach::setModelType);
+
+        modelingMethodRepository.findById(approachDTO.getModelingMethod())
+                .ifPresent(approach::setModelingMethod);
 
         approachTypeRepository.findById(approachDTO.getApproachType())
                 .ifPresent(approach::setApproachType);

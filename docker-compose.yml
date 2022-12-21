@@ -3,7 +3,7 @@ services:
   mongodb:
     image: mongo:latest
     volumes:
-      - systematic-nosql-db-volume
+      - systematic-nosql-db-volume:/var/lib/mysql
     networks:
       - default
     ports:
@@ -16,7 +16,7 @@ services:
         POSTGRESQL_PASSWORD: pg22sr
         POSTGRESQL_DATABASE: studies
       volumes:
-        - systematic-sql-db-volume
+        - systematic-sql-db-volume:/var/lib/postgresql
       networks:
         - default
       ports:
@@ -65,9 +65,9 @@ services:
 
 volumes:
   systematic-nosql-db-volume:
-    external: false
+    driver: local
   systematic-sql-db-volume:
-    external: false
+    driver: local
 
 networks:
   default:
