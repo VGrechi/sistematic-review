@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class StudyDTO {
 
-    private Integer studyId;
+    private String studyId;
 
     private String title;
 

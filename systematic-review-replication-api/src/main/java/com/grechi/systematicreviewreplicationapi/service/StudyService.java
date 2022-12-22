@@ -30,6 +30,7 @@ public class StudyService {
 
     public void save(StudyDTO studyDTO){
         Study study = new Study();
+        study.setStudyId(Integer.parseInt(studyDTO.getStudyId()));
         study.setTitle(studyDTO.getTitle());
         study.setYear(studyDTO.getYear());
         study.setCitationIndex(studyDTO.getCitationIndex());

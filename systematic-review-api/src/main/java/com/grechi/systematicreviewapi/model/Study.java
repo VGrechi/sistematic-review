@@ -14,7 +14,7 @@ import java.util.List;
 public class Study {
 
     @Id
-    private String id;
+    private String studyId;
 
     @NotNull(message = "{validation.study.title}")
     private String title;
@@ -34,7 +34,6 @@ public class Study {
     @NotNull(message = "{validation.study.contribution}")
     private ContributionEnum contribution;
 
-    @NotNull(message = "{validation.study.caseStudy}")
     private String caseStudy;
 
     @NotNull(message = "{validation.study.approach}")

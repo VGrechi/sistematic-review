@@ -11,7 +11,6 @@ import java.util.List;
 public class Study {
 
     @Id
-    @GeneratedValue
     private Integer studyId;
 
     @Column

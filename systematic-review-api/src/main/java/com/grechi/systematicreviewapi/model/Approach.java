@@ -9,7 +9,6 @@ import java.util.List;
 @Data
 public class Approach {
 
-    @NotNull(message = "{validation.study.approach.name}")
     private String name;
 
     @NotNull(message = "{validation.study.approach.description}")
