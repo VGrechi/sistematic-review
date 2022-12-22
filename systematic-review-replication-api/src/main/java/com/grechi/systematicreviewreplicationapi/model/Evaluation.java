@@ -1,5 +1,7 @@
 package com.grechi.systematicreviewreplicationapi.model;
 
+import com.grechi.systematicreviewcore.enums.EvaluationEnum;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;

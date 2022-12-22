@@ -1,4 +1,4 @@
-package com.grechi.systematicreviewapi.model;
+package com.grechi.systematicreviewcore.enums;
 
 public enum LifeCyclePhaseEnum {
 
@@ -6,6 +6,6 @@ public enum LifeCyclePhaseEnum {
     DESIGN,
     DEVELOPMENT,
     TEST,
-    DEPLOYMENT
+    OPERATION
 
 }

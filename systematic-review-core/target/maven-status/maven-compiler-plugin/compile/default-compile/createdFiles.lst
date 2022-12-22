@@ -1,0 +1,9 @@
+com\grechi\systematicreviewcore\enums\MeasurementEnum.class
+com\grechi\systematicreviewcore\enums\ModelTypeEnum.class
+com\grechi\systematicreviewcore\enums\ApproachTypeEnum.class
+com\grechi\systematicreviewcore\enums\EvaluationEnum.class
+com\grechi\systematicreviewcore\enums\LifeCyclePhaseEnum.class
+com\grechi\systematicreviewcore\enums\RiskActivityEnum.class
+com\grechi\systematicreviewcore\enums\ModelingMethodEnum.class
+com\grechi\systematicreviewcore\enums\ContributionEnum.class
+com\grechi\systematicreviewcore\enums\GoalEnum.class

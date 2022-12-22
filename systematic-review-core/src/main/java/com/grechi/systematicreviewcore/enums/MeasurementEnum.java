@@ -1,4 +1,4 @@
-package com.grechi.systematicreviewreplicationapi.model;
+package com.grechi.systematicreviewcore.enums;
 
 public enum MeasurementEnum {
 

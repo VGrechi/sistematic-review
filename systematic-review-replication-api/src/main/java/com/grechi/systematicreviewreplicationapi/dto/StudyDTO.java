@@ -1,9 +1,8 @@
 package com.grechi.systematicreviewreplicationapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.grechi.systematicreviewreplicationapi.model.Approach;
+import com.grechi.systematicreviewcore.enums.ContributionEnum;
 import com.grechi.systematicreviewreplicationapi.model.Author;
-import com.grechi.systematicreviewreplicationapi.model.ContributionEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

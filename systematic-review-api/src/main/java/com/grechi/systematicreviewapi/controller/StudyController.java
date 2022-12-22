@@ -3,7 +3,6 @@ package com.grechi.systematicreviewapi.controller;
 import com.grechi.systematicreviewapi.model.Study;
 import com.grechi.systematicreviewapi.service.StudyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 

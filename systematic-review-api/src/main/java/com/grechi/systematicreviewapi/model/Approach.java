@@ -1,5 +1,6 @@
 package com.grechi.systematicreviewapi.model;
 
+import com.grechi.systematicreviewcore.enums.*;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;

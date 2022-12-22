@@ -1,6 +1,7 @@
 package com.grechi.systematicreviewapi.model;
 
 
+import com.grechi.systematicreviewcore.enums.ContributionEnum;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

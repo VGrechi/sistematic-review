@@ -1,4 +1,4 @@
-package com.grechi.systematicreviewapi.model;
+package com.grechi.systematicreviewcore.enums;
 
 public enum ModelTypeEnum {
     NOT_SPECIFIED,

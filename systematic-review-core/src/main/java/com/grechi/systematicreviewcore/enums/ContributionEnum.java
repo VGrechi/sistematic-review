@@ -1,4 +1,4 @@
-package com.grechi.systematicreviewapi.model;
+package com.grechi.systematicreviewcore.enums;
 
 public enum ContributionEnum {
 
@@ -9,6 +9,7 @@ public enum ContributionEnum {
     TOOL,
     PATTERN,
     COMPARATIVE_STUDY,
-    EMPIRICAL_STUDY
+    EMPIRICAL_STUDY,
+    CASE_STUDY
 
 }
