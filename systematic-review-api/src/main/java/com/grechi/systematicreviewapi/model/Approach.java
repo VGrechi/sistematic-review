@@ -24,7 +24,7 @@ public class Approach {
     private List<RiskActivityEnum> riskActivities;
 
     @NotNull(message = "{validation.study.approach.tools}")
-    private List<String> tools;
+    private List<Tool> tools;
 
     @NotNull(message = "{validation.study.approach.modelType}")
     private ModelTypeEnum modelType;

@@ -1,4 +1,4 @@
-package com.grechi.systematicreviewapi.producer;
+package com.grechi.systematicreviewapi.controller.producer;
 
 import com.grechi.systematicreviewapi.model.Study;
 import org.springframework.beans.factory.annotation.Autowired;

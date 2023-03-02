@@ -2,6 +2,7 @@ package com.grechi.systematicreviewreplicationapi.service;
 
 import com.grechi.systematicreviewreplicationapi.dto.ApproachDTO;
 import com.grechi.systematicreviewreplicationapi.model.Approach;
+import com.grechi.systematicreviewreplicationapi.model.Tool;
 import com.grechi.systematicreviewreplicationapi.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 @Service
 public class ApproachService {
 
+    private final ToolService toolService;
     private final LifeCyclePhaseRepository lifeCyclePhaseRepository;
     private final RiskActivityRepository riskActivityRepository;
 
@@ -28,12 +30,16 @@ public class ApproachService {
     private final ApproachRepository approachRepository;
 
     @Autowired
-    public ApproachService(LifeCyclePhaseRepository lifeCyclePhaseRepository, RiskActivityRepository riskActivityRepository, ModelTypeRepository modelTypeRepository, ModelingMethodRepository modelingMethodRepository, ApproachTypeRepository approachTypeRepository, GoalRepository goalRepository, EvaluationRepository evaluationRepository, MeasurementRepository measurementRepository, ApproachRepository approachRepository) {
+    public ApproachService(ToolService toolService, LifeCyclePhaseRepository lifeCyclePhaseRepository, RiskActivityRepository riskActivityRepository,
+                           ModelTypeRepository modelTypeRepository, ModelingMethodRepository modelingMethodRepository, ApproachTypeRepository approachTypeRepository,
+                           GoalRepository goalRepository, EvaluationRepository evaluationRepository, MeasurementRepository measurementRepository,
+                           ApproachRepository approachRepository) {
+        this.toolService = toolService;
         this.lifeCyclePhaseRepository = lifeCyclePhaseRepository;
-        this.approachTypeRepository = approachTypeRepository;
         this.riskActivityRepository = riskActivityRepository;
         this.modelTypeRepository = modelTypeRepository;
         this.modelingMethodRepository = modelingMethodRepository;
+        this.approachTypeRepository = approachTypeRepository;
         this.goalRepository = goalRepository;
         this.evaluationRepository = evaluationRepository;
         this.measurementRepository = measurementRepository;
@@ -45,7 +51,11 @@ public class ApproachService {
         approach.setName(approachDTO.getName());
         approach.setDescription(approachDTO.getDescription());
         approach.setApplicationDomain(approachDTO.getApplicationDomain());
-        approach.setTools(approachDTO.getTools());
+
+        approachDTO.getTools().forEach(t -> {
+            Tool savedTool = toolService.save(t);
+            approach.getTools().add(savedTool);
+        });
 
         approach.setLifeCyclePhases(new ArrayList<>());
         approachDTO.getLifeCyclePhases().forEach(lcp -> {
@@ -81,7 +91,6 @@ public class ApproachService {
         measurementRepository.findById(approachDTO.getMeasurement())
                 .ifPresent(approach::setMeasurement);
 
-        Approach savedApproach = approachRepository.save(approach);
-        return savedApproach;
+        return approachRepository.save(approach);
     }
 }

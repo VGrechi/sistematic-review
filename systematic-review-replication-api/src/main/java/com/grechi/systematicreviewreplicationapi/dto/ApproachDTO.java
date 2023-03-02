@@ -27,7 +27,7 @@ public class ApproachDTO {
     private List<RiskActivityEnum> riskActivities;
 
     @JsonProperty
-    private List<String> tools;
+    private List<ToolDTO> tools;
 
     @JsonProperty
     private ModelTypeEnum modelType;

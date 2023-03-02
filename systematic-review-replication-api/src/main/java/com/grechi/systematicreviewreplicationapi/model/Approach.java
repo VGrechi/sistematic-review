@@ -3,11 +3,17 @@ package com.grechi.systematicreviewreplicationapi.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
 public class Approach {
+
+    public List<Tool> getTools() {
+        if(tools == null) tools = new ArrayList<>();
+        return tools;
+    }
 
     @Id @GeneratedValue
     private Integer approachId;
@@ -30,9 +36,8 @@ public class Approach {
     @ManyToMany
     private List<RiskActivity> riskActivities;
 
-    @ElementCollection
-    @CollectionTable(name = "Tool", joinColumns = @JoinColumn(name = "approach_id"))
-    private List<String> tools;
+    @ManyToMany
+    private List<Tool> tools;
 
     @ManyToOne
     @JoinColumn(name = "modelType")

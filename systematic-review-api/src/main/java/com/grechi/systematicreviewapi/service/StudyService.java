@@ -1,7 +1,7 @@
 package com.grechi.systematicreviewapi.service;
 
 import com.grechi.systematicreviewapi.model.Study;
-import com.grechi.systematicreviewapi.producer.StudyProducer;
+import com.grechi.systematicreviewapi.controller.producer.StudyProducer;
 import com.grechi.systematicreviewapi.repository.StudyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
