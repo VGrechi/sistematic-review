@@ -40,4 +40,11 @@ public class Study {
     @JoinColumn(name = "approach_id")
     private Approach approach;
 
+    @Column
+    private String reference;
+
+    @OneToOne
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
+
 }

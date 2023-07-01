@@ -39,4 +39,10 @@ public class Study {
     @NotNull(message = "{validation.study.approach}")
     private Approach approach;
 
+    @NotNull(message = "{validation.study.reference}")
+    private String reference;
+
+    @NotNull(message = "{validation.study.publisher}")
+    private Publisher publisher;
+
 }

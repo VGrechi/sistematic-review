@@ -32,4 +32,9 @@ public class StudyDTO {
 
     @JsonProperty
     private ApproachDTO approach;
+
+    private String reference;
+
+    @JsonProperty
+    private PublisherDTO publisher;
 }
