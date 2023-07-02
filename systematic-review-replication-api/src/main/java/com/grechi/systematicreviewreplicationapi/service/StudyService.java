@@ -40,6 +40,7 @@ public class StudyService {
         study.setCitationIndex(studyDTO.getCitationIndex());
         study.setStandards(studyDTO.getStandards());
         study.setCaseStudy(studyDTO.getCaseStudy());
+        study.setLatexCitationCommand(studyDTO.getLatexCitationCommand());
         study.setReference(studyDTO.getReference());
 
         study.setAuthors(new ArrayList<>());

@@ -41,6 +41,9 @@ public class Study {
     private Approach approach;
 
     @Column
+    private String latexCitationCommand;
+
+    @Column
     private String reference;
 
     @OneToOne

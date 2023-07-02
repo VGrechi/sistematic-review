@@ -33,6 +33,8 @@ public class StudyDTO {
     @JsonProperty
     private ApproachDTO approach;
 
+    private String latexCitationCommand;
+
     private String reference;
 
     @JsonProperty
